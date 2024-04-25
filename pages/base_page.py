@@ -1,6 +1,6 @@
-from selenium.webdriver import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
+from selenium.webdriver import ActionChains
 
 
 class BasePage:
