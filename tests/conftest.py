@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 
+from pages.password_recovery_page import PasswordRecoveryPage
 from pages.main_page import MainPage
 
 
@@ -23,15 +24,7 @@ def main_page(webpage):
     return main_page
 
 
-
-
 @pytest.fixture(scope='function')
-def order_page(webpage):
-    order_page = OrderPage(webpage)
-    return order_page
-
-
-@pytest.fixture(scope='function')
-def lk_page(webpage):
-    lk_page = LK(webpage)
-    return lk_page
+def password_recovery_page(webpage):
+    password_recovery_page = PasswordRecoveryPage(webpage)
+    return password_recovery_page
