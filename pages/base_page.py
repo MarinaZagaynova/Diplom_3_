@@ -8,10 +8,6 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
-    def scroll_to_element(self, locator):
-        element = self.driver.find_element(*locator)
-        self.driver.execute_script("arguments[0].scrollIntoView();", element)
-
     def click_to_element(self, locator):
         WebDriverWait(self.driver, 20).until(expected_conditions.element_to_be_clickable(locator))
         self.driver.find_element(*locator).click()
@@ -26,14 +22,7 @@ class BasePage:
     def get_text_from_element(self, locator):
         return self.find_element_and_wait(locator).text
 
-    def format_locators(self, locator_1, num):
-        method, locator = locator_1
-        locator = locator.format(num)
-        return (method, locator)
-
-    def switch_to_page(self, locator):
-        self.driver.switch_to.window(self.driver.window_handles[-1])
-        self.wait(locator)
+    def get_redirected_url(self):
         redirected_url = self.driver.current_url
         return redirected_url
 

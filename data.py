@@ -1,4 +1,5 @@
 class DataUrl:
+    URL = 'https://stellarburgers.nomoreparties.site'
     PROFILE = '/account/profile'
     LOGIN = '/login'
     REGISTRATION = '/register'

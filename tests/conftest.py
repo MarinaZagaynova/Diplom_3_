@@ -1,6 +1,8 @@
 import pytest
 from selenium import webdriver
 
+import data
+from pages.lk_page import LkPage
 from pages.password_recovery_page import PasswordRecoveryPage
 from pages.main_page import MainPage
 
@@ -12,7 +14,7 @@ def webpage(request):
         driver = webdriver.Chrome()
     elif request.param == 'firefox':
         driver = webdriver.Firefox()
-    url = 'https://stellarburgers.nomoreparties.site'
+    url = data.DataUrl.URL
     driver.get(url)
     yield driver
     driver.quit()
@@ -28,3 +30,9 @@ def main_page(webpage):
 def password_recovery_page(webpage):
     password_recovery_page = PasswordRecoveryPage(webpage)
     return password_recovery_page
+
+
+@pytest.fixture(scope='function')
+def lk_page(webpage):
+    lk_page = LkPage(webpage)
+    return lk_page
