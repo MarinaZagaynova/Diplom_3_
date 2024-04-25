@@ -28,11 +28,11 @@ class TestMainFunctionality:
     @allure.title('Проверка работы счетчика ингредиента заказа')
     def test_check_adding_ingredient(self, main_page):
         main_page.drag_and_drop_ingredients()
-        main_page.drag_and_drop_ingredients()
         main_page.check_adding_ingredient()
 
     @allure.title('Проверка оформления заказа')
     def test_user_make_order(self, main_page):
         main_page.authorization()
         main_page.drag_and_drop_ingredients()
-        main_page.click_click_checkout()
+        main_page.click_checkout()
+        main_page.check_order()
