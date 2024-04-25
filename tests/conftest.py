@@ -3,6 +3,7 @@ from selenium import webdriver
 
 import data
 from pages.lk_page import LkPage
+from pages.order_page import OrderPage
 from pages.password_recovery_page import PasswordRecoveryPage
 from pages.main_page import MainPage
 
@@ -30,6 +31,12 @@ def main_page(webpage):
 def password_recovery_page(webpage):
     password_recovery_page = PasswordRecoveryPage(webpage)
     return password_recovery_page
+
+
+@pytest.fixture(scope='function')
+def order_page(webpage):
+    order_page = OrderPage(webpage)
+    return order_page
 
 
 @pytest.fixture(scope='function')

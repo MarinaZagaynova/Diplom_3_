@@ -35,3 +35,6 @@ class BasePage:
 
     def get_attribute_class_of_element(self, locator):
         return self.find_element_and_wait(locator).get_attribute("class")
+
+    def scroll_to_end_of_page(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
